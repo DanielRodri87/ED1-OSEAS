@@ -1,26 +1,23 @@
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(){
-    char vetor[300];
+    char *vetor;
+    vetor = (char *) malloc(100 * sizeof(char));
     printf("Digite a frase que você deseja escrever: ");
     gets(vetor);
-    int i, j, cont, tamanho = 0;
-    int ocorrencias[256] = {0};
+    int i, j, c, tam = 0;
+    int c_digits[256] = {0};
 
     for (i = 0; vetor[i] != '\0'; i++)
-    {
-        if (vetor[i] != ' ')
-        {
-            ocorrencias[vetor[i]]++;
-        }
-    }
+        c_digits[vetor[i]]++;
 
     for (i = 0; i < 256; i++)
     {
-        if (ocorrencias[i] > 0)
+        if (c_digits[i] > 0)
         {
-            printf("'%c' = %d\n", i, ocorrencias[i]);
+            printf("'%c' = %d\n", i, c_digits[i]);
         }
     }
 }
