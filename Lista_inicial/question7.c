@@ -1,14 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 void add(int *codes, int *stock, int num_prods){
-    int temp = 100;
+    srand(time(NULL));
+    int list_random_nums[num_prods]; 
     for (int i = 0; i < num_prods; i++)
     {
-        codes[i] = temp;
+        int aux;
+        do {
+            aux = rand() % 900 + 100; 
+        } while (i > 0 && aux == list_random_nums[i - 1]); 
+        
+        codes[i] = aux;
+        list_random_nums[i] = aux;
         printf("Produto: %d tem quantos itens no estoque: ", codes[i]);
         scanf("%d", &stock[i]);
-        temp++;
+        aux++;
     }
 }
 
