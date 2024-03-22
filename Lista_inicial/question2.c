@@ -2,47 +2,47 @@
 #include <stdlib.h>
 #include <time.h>
 
-void count_occurrences(int matrix[200][100], int occurrences[], int X) {
+void c_oco(int x[200][100], int oco[], int value) {
     int i, j;
     for (i = 0; i < 200; i++) {
         for (j = 0; j < 100; j++) {
-            occurrences[matrix[i][j]]++;
+            oco[x[i][j]]++;
         }
     }
 }
 
-void display_occurrences(int occurrences[], int X) {
-    for (int i = 0; i <= X; i++) {
-        if (occurrences[i] == 1) {
+void view_oco(int oco[], int value) {
+    for (int i = 0; i <= value; i++) {
+        if (oco[i] == 1) {
             printf("O número %d ocorreu 1 vez\n", i);
-        } else if (occurrences[i] > 1) {
-            printf("O número %d ocorreu %d vezes\n", i, occurrences[i]);
+        } else if (oco[i] > 1) {
+            printf("O número %d ocorreu %d vezes\n", i, oco[i]);
         }
     }
 }
 
 int main() {
-    int matrix[200][100];
-    int X, i, j;
+    int x[200][100];
+    int value, i, j;
     
-    printf("Informe o valor máximo para os números na matriz: ");
-    scanf("%d", &X);
+    printf("Informe o valor mávalueimo para os números na matriz: ");
+    scanf("%d", &value);
     
-    int occurrences[X+1];
-    for (i = 0; i <= X; i++) {
-        occurrences[i] = 0;
+    int oco[value+1];
+    for (i = 0; i <= value; i++) {
+        oco[i] = 0;
     }
     
     srand(time(NULL));
     for (i = 0; i < 200; i++) {
         for (j = 0; j < 100; j++) {
-            matrix[i][j] = rand() % (X+1);
+            x[i][j] = rand() % (value+1);
         }
     }
     
-    count_occurrences(matrix, occurrences, X);
+    c_oco(x, oco, value);
     
-    display_occurrences(occurrences, X);
+    view_oco(oco, value);
     
     return 0;
 }

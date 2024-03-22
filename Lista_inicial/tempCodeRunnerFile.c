@@ -1,0 +1,1 @@
+ c_digits[vetor[i]]++;
